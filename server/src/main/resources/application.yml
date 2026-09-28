@@ -3,3 +3,27 @@ server:
 
 nuzlocke:
     game: fire-red
+spring:
+  application:
+    name: pokemon-nuzlocker-server
+  datasource:
+    url: ${URL_BBDD:jdbc:postgresql://localhost:5432/pokemon-nuzlocker}
+    username: postgres
+    password: postgres
+
+es.vargontoc.framework.ai:
+  base-url: ${URL_OLLAMA:http://localhost:11434/v1}
+  default-type: REST
+  agents:
+    guide-agent:
+      enabled: true
+      type: SPRING_AI
+      model: guide-agent
+      vector-store:
+        top-k: 4
+        similarity-threshold: 0.5
+        pg:
+          table-name: guide_content
+          dimensions: 1024
+          distance: COSINE
+          index: HNSW

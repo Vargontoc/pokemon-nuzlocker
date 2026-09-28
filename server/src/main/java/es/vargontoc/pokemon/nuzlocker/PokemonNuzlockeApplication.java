@@ -6,9 +6,9 @@ import org.springframework.boot.context.properties.ConfigurationPropertiesScan;
 
 @SpringBootApplication(scanBasePackages= "es.vargontoc")
 @ConfigurationPropertiesScan("es.vargontoc")
-public class Application {
+public class PokemonNuzlockeApplication {
     
     public static void main(String[] args) {
-        SpringApplication.run(Application.class, args);
+        SpringApplication.run(PokemonNuzlockeApplication.class, args);
     }
 }

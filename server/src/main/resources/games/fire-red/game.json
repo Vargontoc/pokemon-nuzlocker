@@ -1,0 +1,10 @@
+{
+    "id": "fire-red",
+    "name": "Pokémon Rojo Fuego",
+    "generation": 3,
+    "platform": "GBA",
+    "pokeapiVersionGroup": "firered-leafgreen",
+    "romCodes": ["BPRE", "BPRS", "BPRF", "BPRD", "BPRI", "BPRJ"],
+    "starters": ["bulbasaur", "charmander", "squirtle"],
+    "unsupportedRules": []
+}

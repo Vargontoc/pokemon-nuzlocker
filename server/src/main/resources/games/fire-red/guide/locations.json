@@ -1,0 +1,758 @@
+[
+    {
+        "id": "pueblo-paleta",
+        "name": "Pueblo Paleta",
+        "type": "TOWN",
+        "parentId": null,
+        "summary": "Pueblo inicial. Casa del jugador (PC con Poción) y Laboratorio del Profesor Oak.",
+        "connections": [
+            {
+                "to": "ruta-1",
+                "direction": "NORTH",
+                "requires": null
+            },
+            {
+                "to": "ruta-21",
+                "direction": "SOUTH",
+                "requires": [
+                    {
+                        "type": "MOVE_ON_TEAM",
+                        "value": "surf"
+                    },
+                    {
+                        "type": "BADGE",
+                        "value": "badge-cascade"
+                    }
+                ]
+            }
+        ],
+        "services": [],
+        "gym": null,
+        "items": [
+            {
+                "item": "potion",
+                "name": "Poción",
+                "source": "PC",
+                "hidden": false
+            }
+        ],
+        "encounters": []
+    },
+    {
+        "id": "ruta-1",
+        "name": "Ruta 1",
+        "type": "ROUTE",
+        "parentId": null,
+        "summary": "Ruta entre Pueblo Paleta y Ciudad Verde",
+        "connections": [
+            {
+                "to": "pueblo-paleta",
+                "direction": "SOUTH",
+                "requires": null
+            },
+            {
+                "to": "ciudad-verde",
+                "direction": "NORTH",
+                "requires": null
+            }
+        ],
+        "services": [],
+        "gym": null,
+        "items": [
+            {
+                "item": "potion",
+                "name": "Poción",
+                "source": "NPC_GIFT",
+                "hidden": false
+            }
+        ],
+        "encounters": [
+            {
+                "method": "GRASS",
+                "requires": null,
+                "specie": "pidgey",
+                "minLevel": 2,
+                "maxLevel": 5
+            },
+            {
+                "method": "GRASS",
+                "requires": null,
+                "specie": "rattata",
+                "minLevel": 2,
+                "maxLevel": 4
+            }
+        ]
+    },
+    {
+        "id": "ciudad-verde",
+        "name": "Ciudad Verde",
+        "type": "CITY",
+        "parentId": null,
+        "summary": "Primera ciudad. Centro Pokémon, Tienda Pokémon y Gimnasio",
+        "connections": [
+            {
+                "to": "ruta-1",
+                "direction": "SOUTH",
+                "requires": null
+            },
+            {
+                "to": "ruta-2",
+                "direction": "NORTH",
+                "requires": null
+            },
+            {
+                "to": "ruta-22",
+                "direction": "WEST",
+                "requires": null
+            },
+            {
+                "to": "gimnasio-ciudad-verde",
+                "direction": "INSIDE",
+                "requires": [
+                    {
+                        "type": "HAS_BADGE",
+                        "value": "badge-boulder"
+                    },
+                    {
+                        "type": "HAS_BADGE",
+                        "value": "badge-cascade"
+                    },
+                    {
+                        "type": "HAS_BADGE",
+                        "value": "badge-surge"
+                    },
+                    {
+                        "type": "HAS_BADGE",
+                        "value": "badge-volcano"
+                    },
+                    {
+                        "type": "MOVE_ON_TEAM",
+                        "value": "cut"
+                    }
+                ]
+            }
+        ],
+        "services": [
+            "POKEMON_CENTER",
+            "POKEMART",
+            "GYM"
+        ],
+        "gym": null,
+        "encounters": [
+            {
+                "method": "SURF",
+                "specie": "psyduck",
+                "minLevel": 20,
+                "maxLevel": 40,
+                "exclusive-version": "fire-red",
+                "requires": [
+                    {
+                        "type": "MOVE_ON_TEAM",
+                        "value": "surf"
+                    },
+                    {
+                        "type": "HAS_BADGE",
+                        "value": "badge-cascade"
+                    }
+                ]
+            },
+            {
+                "method": "SURF",
+                "specie": "slowpoke",
+                "minLevel": 20,
+                "maxLevel": 40,
+                "exclusive-version": "leaf-green",
+                "requires": [
+                    {
+                        "type": "MOVE_ON_TEAM",
+                        "value": "surf"
+                    },
+                    {
+                        "type": "HAS_BADGE",
+                        "value": "badge-cascade"
+                    }
+                ]
+            },
+            {
+                "method": "FISHING",
+                "specie": "magikarp",
+                "minLevel": 5,
+                "maxLevel": 5,
+                "requires": [
+                    {
+                        "type": "HAS_ITEM",
+                        "value": "old-rod"
+                    }
+                ]
+            },
+            {
+                "method": "FISHING",
+                "specie": "poliwag",
+                "minLevel": 5,
+                "maxLevel": 15,
+                "requires": [
+                    {
+                        "type": "HAS_ITEM",
+                        "value": "good-rod"
+                    }
+                ]
+            },
+            {
+                "method": "FISHING",
+                "specie": "goldeen",
+                "minLevel": 5,
+                "maxLevel": 15,
+                "requires": [
+                    {
+                        "type": "HAS_ITEM",
+                        "value": "good-rod"
+                    }
+                ]
+            },
+            {
+                "method": "FISHING",
+                "specie": "magikarp",
+                "minLevel": 5,
+                "maxLevel": 15,
+                "requires": [
+                    {
+                        "type": "HAS_ITEM",
+                        "value": "good-rod"
+                    }
+                ]
+            },
+            {
+                "method": "FISHING",
+                "specie": "poliwag",
+                "minLevel": 15,
+                "maxLevel": 25,
+                "requires": [
+                    {
+                        "type": "HAS_ITEM",
+                        "value": "super-rod"
+                    }
+                ]
+            },
+            {
+                "method": "FISHING",
+                "specie": "poliwhirl",
+                "minLevel": 20,
+                "maxLevel": 30,
+                "requires": [
+                    {
+                        "type": "HAS_ITEM",
+                        "value": "super-rod"
+                    }
+                ]
+            },
+            {
+                "method": "FISHING",
+                "specie": "gyarados",
+                "minLevel": 15,
+                "maxLevel": 25,
+                "requires": [
+                    {
+                        "type": "HAS_ITEM",
+                        "value": "super-rod"
+                    }
+                ]
+            },
+            {
+                "method": "FISHING",
+                "specie": "psyduck",
+                "minLevel": 15,
+                "maxLevel": 35,
+                "exclusive-version": "fire-red",
+                "requires": [
+                    {
+                        "type": "HAS_ITEM",
+                        "value": "super-rod"
+                    }
+                ]
+            },
+            {
+                "method": "FISHING",
+                "specie": "slowpoke",
+                "minLevel": 15,
+                "maxLevel": 35,
+                "exclusive-version": "leaf-green",
+                "requires": [
+                    {
+                        "type": "HAS_ITEM",
+                        "value": "super-rod"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": "ruta-22",
+        "name": "Ruta 22",
+        "type": "ROUTE",
+        "parentId": null,
+        "summary": "Ruta que une Ciudad Verde con la Liga Pokémon",
+        "connections": [
+            {
+                "to": "ciudad-verde",
+                "direction": "EAST",
+                "requires": null
+            }
+        ],
+        "services": [],
+        "gym": null,
+        "items": [],
+        "encounters": [
+            {
+                "method": "GRASS",
+                "specie": "rattata",
+                "minLevel": 2,
+                "maxLevel": 5
+            },
+            {
+                "method": "GRASS",
+                "specie": "spearow",
+                "minLevel": 3,
+                "maxLevel": 5
+            },
+            {
+                "method": "GRASS",
+                "specie": "mankey",
+                "minLevel": 2,
+                "maxLevel": 5
+            },
+            {
+                "method": "SURF",
+                "specie": "psyduck",
+                "minLevel": 20,
+                "maxLevel": 40,
+                "exclusive-version": "fire-red",
+                "requires": [
+                    {
+                        "type": "MOVE_ON_TEAM",
+                        "value": "surf"
+                    },
+                    {
+                        "type": "HAS_BADGE",
+                        "value": "badge-cascade"
+                    }
+                ]
+            },
+            {
+                "method": "SURF",
+                "specie": "slowpoke",
+                "minLevel": 20,
+                "maxLevel": 40,
+                "exclusive-version": "leaf-green",
+                "requires": [
+                    {
+                        "type": "MOVE_ON_TEAM",
+                        "value": "surf"
+                    },
+                    {
+                        "type": "HAS_BADGE",
+                        "value": "badge-cascade"
+                    }
+                ]
+            },
+            {
+                "method": "FISHING",
+                "specie": "magikarp",
+                "minLevel": 5,
+                "maxLevel": 5,
+                "requires": [
+                    {
+                        "type": "HAS_ITEM",
+                        "value": "old-rod"
+                    }
+                ]
+            },
+            {
+                "method": "FISHING",
+                "specie": "poliwag",
+                "minLevel": 5,
+                "maxLevel": 15,
+                "requires": [
+                    {
+                        "type": "HAS_ITEM",
+                        "value": "good-rod"
+                    }
+                ]
+            },
+            {
+                "method": "FISHING",
+                "specie": "goldeen",
+                "minLevel": 5,
+                "maxLevel": 15,
+                "requires": [
+                    {
+                        "type": "HAS_ITEM",
+                        "value": "good-rod"
+                    }
+                ]
+            },
+            {
+                "method": "FISHING",
+                "specie": "magikarp",
+                "minLevel": 5,
+                "maxLevel": 15,
+                "requires": [
+                    {
+                        "type": "HAS_ITEM",
+                        "value": "good-rod"
+                    }
+                ]
+            },
+            {
+                "method": "FISHING",
+                "specie": "poliwag",
+                "minLevel": 15,
+                "maxLevel": 25,
+                "requires": [
+                    {
+                        "type": "HAS_ITEM",
+                        "value": "super-rod"
+                    }
+                ]
+            },
+            {
+                "method": "FISHING",
+                "specie": "poliwhirl",
+                "minLevel": 20,
+                "maxLevel": 30,
+                "requires": [
+                    {
+                        "type": "HAS_ITEM",
+                        "value": "super-rod"
+                    }
+                ]
+            },
+            {
+                "method": "FISHING",
+                "specie": "gyarados",
+                "minLevel": 15,
+                "maxLevel": 25,
+                "requires": [
+                    {
+                        "type": "HAS_ITEM",
+                        "value": "super-rod"
+                    }
+                ]
+            },
+            {
+                "method": "FISHING",
+                "specie": "psyduck",
+                "minLevel": 15,
+                "maxLevel": 35,
+                "exclusive-version": "fire-red",
+                "requires": [
+                    {
+                        "type": "HAS_ITEM",
+                        "value": "super-rod"
+                    }
+                ]
+            },
+            {
+                "method": "FISHING",
+                "specie": "slowpoke",
+                "minLevel": 15,
+                "maxLevel": 35,
+                "exclusive-version": "leaf-green",
+                "requires": [
+                    {
+                        "type": "HAS_ITEM",
+                        "value": "super-rod"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": "ruta-2",
+        "name": "Ruta 2",
+        "type": "ROUTE",
+        "parentId": null,
+        "summary": "Ruta que conecta Ciudad Verde con Ciudad Plateada con acceso al Bosque Verde",
+        "connections": [
+            {
+                "to": "ciudad-verde",
+                "direction": "SOUTH",
+                "requires": null
+            },
+            {
+                "to": "bosque-verde",
+                "direction": "NORTH",
+                "requires": null
+            },
+            {
+                "to": "ciudad-plateada",
+                "direction": "NORTH",
+                "requires": null
+            }
+        ],
+        "services": [],
+        "gym": null,
+        "items": [],
+        "encounters": [
+            {
+                "method": "GRASS",
+                "specie": "pidgey",
+                "minLevel": 2,
+                "maxLevel": 5
+            },
+            {
+                "method": "GRASS",
+                "specie": "rattata",
+                "minLevel": 2,
+                "maxLevel": 5
+            },
+            {
+                "method": "GRASS",
+                "specie": "caterpie",
+                "minLevel": 4,
+                "maxLevel": 5
+            },
+            {
+                "method": "GRASS",
+                "specie": "weedle",
+                "minLevel": 4,
+                "maxLevel": 5
+            },
+            {
+                "method": "TRADE",
+                "specie": "mr-mime",
+                "requires": [
+                    {
+                        "type": "HAS_BADGE",
+                        "value": "badge-surge"
+                    },
+                    {
+                        "type": "MOVE_ON_TEAM",
+                        "value": "cut"
+                    },
+                    {
+                        "type": "SPECIE_ON_TEAM",
+                        "value": "abra"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": "bosque-verde",
+        "name": "Bosque Verde",
+        "type": "DUNGEON",
+        "parentId": null,
+        "summary": "Bosque Verde es un área natural que conecta Ruta 2 con Ciudad Plateada. Tiene cinco entrenadores opcionales",
+        "connections": [
+            {
+                "to": "ruta-2",
+                "direction": "SOUTH",
+                "requires": null
+            },
+            {
+                "to": "ciudad-plateada",
+                "direction": "NORTH",
+                "requires": null
+            }
+        ],
+        "services": [],
+        "gym": null,
+        "items": [
+            {
+                "item": "antidote",
+                "name": "Antídoto",
+                "source": "GROUND",
+                "hidden": false,
+                "requires": null
+            },
+            {
+                "item": "antidote",
+                "name": "Antídoto",
+                "source": "GROUND",
+                "hidden": false,
+                "requires": null
+            },
+            {
+                "item": "potion",
+                "name": "Poción",
+                "source": "GROUND",
+                "hidden": false,
+                "requires": null
+            },
+            {
+                "item": "potion",
+                "name": "Poción",
+                "source": "GROUND",
+                "hidden": false,
+                "requires": null
+            },
+            {
+                "item": "pokeball",
+                "name": "Poké Ball",
+                "source": "GROUND",
+                "hidden": false,
+                "requires": null
+            }
+        ],
+        "encounters": [
+            {
+                "method": "GRASS",
+                "specie": "caterpie",
+                "minLevel": 3,
+                "maxLevel": 5
+            },
+            {
+                "method": "GRASS",
+                "specie": "weedle",
+                "minLevel": 3,
+                "maxLevel": 5
+            },
+            {
+                "method": "GRASS",
+                "specie": "metapod",
+                "minLevel": 3,
+                "maxLevel": 6
+            },
+            {
+                "method": "GRASS",
+                "specie": "kakuna",
+                "minLevel": 3,
+                "maxLevel": 6
+            },
+            {
+                "method": "GRASS",
+                "specie": "pikachu",
+                "minLevel": 3,
+                "maxLevel": 5
+            }
+        ]
+    },
+    {
+        "id": "ciudad-plateada",
+        "name": "Ciudad Plateada",
+        "type": "CITY",
+        "parentId": null,
+        "summary": "Ciudad del primer gimnasio. Tienda Pokemon. La salida a la Ruta 3 está bloqueada hasta conseguir la medalla roca",
+        "connections": [
+            {
+                "to": "ruta-2",
+                "direction": "SOUTH",
+                "requires": null
+            },
+            {
+                "to": "ruta-3",
+                "direction": "EAST",
+                "requires": [
+                    {
+                        "type": "BADGE",
+                        "value": "badge-boulder"
+                    }
+                ]
+            },
+            {
+                "to": "gimnasio-ciudad-plateada",
+                "direction": "INSIDE",
+                "requires": null
+            }
+        ],
+        "services": [
+            "GYM",
+            "POKEMART",
+            "POKEMON_CENTER"
+        ],
+        "gym": null,
+        "items": [
+            {
+                "item": "pokeball",
+                "name": "Poké Ball",
+                "source": "GROUND",
+                "hidden": false
+            }
+        ],
+        "encounters": [
+            {
+                "method": "TRADE",
+                "specie": "aerodactyl",
+                "requires": [
+                    {
+                        "type": "HAS_ITEM",
+                        "value": "old-ambar"
+                    },
+                    {
+                        "type": "HAS_BADGE",
+                        "value": "badge-cascade"
+                    },
+                    {
+                        "type": "MOVE_ON_TEAM",
+                        "value": "cut"
+                    }
+                ]
+            },
+            {
+                "method": "TRADE",
+                "specie": "omanyte",
+                "requires": [
+                    {
+                        "type": "HAS_ITEM",
+                        "value": "helix-fossil"
+                    },
+                    {
+                        "type": "HAS_BADGE",
+                        "value": "badge-cascade"
+                    },
+                    {
+                        "type": "MOVE_ON_TEAM",
+                        "value": "cut"
+                    }
+                ]
+            },
+            {
+                "method": "TRADE",
+                "specie": "kabuto",
+                "requires": [
+                    {
+                        "type": "HAS_ITEM",
+                        "value": "dome-fossil"
+                    },
+                    {
+                        "type": "HAS_BADGE",
+                        "value": "badge-cascade"
+                    },
+                    {
+                        "type": "MOVE_ON_TEAM",
+                        "value": "cut"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": "gimnasio-ciudad-plateada",
+        "name": "Gimnasio de Ciudad Plateada",
+        "type": "GYM",
+        "parentId": null,
+        "summary": "Gimnasio de Ciudad Plateada, liderado por Brock",
+        "connections": [
+            {
+                "to": "ciudad-plateada",
+                "direction": "OUTSIDE",
+                "requires": null
+            }
+        ],
+        "services": [],
+        "gym": {
+            "number": 1,
+            "type": "rock",
+            "leaderTrainerId": "lider-brock",
+            "badge": "badge-boulder",
+            "badgeEs": "Medalla Roca",
+            "rewardTm": {
+                "mt": 39,
+                "move": "rock-tomb",
+                "name": "Tumba Rocas"
+            }
+        },
+        "items": [],
+        "encounters": []
+    }
+]

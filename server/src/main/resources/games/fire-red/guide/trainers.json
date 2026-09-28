@@ -1,0 +1,301 @@
+[
+    {
+        "id": "rival-laboratorio",
+        "name": "Rival",
+        "type": "RIVAL",
+        "locationId": "pueblo-paleta",
+        "optional": false,
+        "isGymLeader": false,
+        "team": [
+            {
+                "specie": "charmander",
+                "playerStarter": "bulbasaur",
+                "level": 5,
+                "ability": "blaze",
+                "moves": [
+                    "scratch",
+                    "growl"
+                ]
+            },
+            {
+                "specie": "squirtle",
+                "playerStarter": "charmander",
+                "level": 5,
+                "ability": "torrent",
+                "moves": [
+                    "tackle",
+                    "tail-whip"
+                ]
+            },
+            {
+                "specie": "bulbasaur",
+                "playerStarter": "squirtle",
+                "level": 5,
+                "ability": "overgrow",
+                "moves": [
+                    "tackle",
+                    "growl"
+                ]
+            }
+        ]
+    },
+    {
+        "id": "rival-ruta-22-1",
+        "name": "Rival",
+        "type": "RIVAL",
+        "locationId": "ruta-22",
+        "optional": true,
+        "isGymLeader": false,
+        "team": [
+            {
+                "specie": "charmander",
+                "playerStarter": "bulbasaur",
+                "level": 9,
+                "ability": "blaze",
+                "moves": [
+                    "ember",
+                    "growl",
+                    "scratch"
+                ]
+            },
+            {
+                "specie": "squirtle",
+                "playerStarter": "charmander",
+                "level": 9,
+                "ability": "torrent",
+                "moves": [
+                    "tackle",
+                    "tail-whip",
+                    "bubble"
+                ]
+            },
+            {
+                "specie": "bulbasaur",
+                "playerStarter": "squirtle",
+                "level": 9,
+                "ability": "overgrow",
+                "moves": [
+                    "tackle",
+                    "growl",
+                    "leech-seed"
+                ]
+            },
+            {
+                "specie": "pidgey",
+                "level": 9,
+                "ability": "keen-eye",
+                "moves": [
+                    "tackle",
+                    "gust",
+                    "sand-attack"
+                ]
+            }
+        ]
+    },
+    {
+        "id": "cazabichos-jano",
+        "type": "BUG_CATCHER",
+        "name": "Cazabichos Jano",
+        "locationId": "bosque-verde",
+        "isGymLeader": false,
+        "optional": true,
+        "team": [
+            {
+                "specie": "weedle",
+                "level": 6,
+                "ability": "shield-dust",
+                "moves": [
+                    "string-shot",
+                    "poison-sting"
+                ]
+            },
+            {
+                "specie": "caterpie",
+                "level": 6,
+                "ability": "shield-dust",
+                "moves": [
+                    "string-shot",
+                    "tackle"
+                ]
+            }
+        ]
+    },
+    {
+        "id": "cazabichos-domin",
+        "type": "BUG_CATCHER",
+        "name": "Cazabichos Domin",
+        "locationId": "bosque-verde",
+        "isGymLeader": false,
+        "optional": true,
+        "team": [
+            {
+                "specie": "weedle",
+                "level": 7,
+                "ability": "shield-dust",
+                "moves": [
+                    "string-shot",
+                    "poison-sting"
+                ]
+            },
+            {
+                "specie": "kakuna",
+                "level": 7,
+                "ability": "shed-skin",
+                "moves": [
+                    "harden"
+                ]
+            },
+            {
+                "specie": "weedle",
+                "level": 7,
+                "ability": "shield-dust",
+                "moves": [
+                    "string-shot",
+                    "poison-sting"
+                ]
+            }
+        ]
+    },
+    {
+        "id": "cazabichos-anton",
+        "type": "BUG_CATCHER",
+        "name": "Cazabichos Anton",
+        "locationId": "bosque-verde",
+        "isGymLeader": false,
+        "optional": true,
+        "team": [
+            {
+                "specie": "caterpie",
+                "level": 7,
+                "ability": "shield-dust",
+                "moves": [
+                    "string-shot",
+                    "tackle"
+                ]
+            },
+            {
+                "specie": "caterpie",
+                "level": 8,
+                "ability": "shield-dust",
+                "moves": [
+                    "string-shot",
+                    "tackle"
+                ]
+            }
+        ]
+    },
+    {
+        "id": "cazabichos-carmelo",
+        "type": "BUG_CATCHER",
+        "name": "Cazabichos Carmelo",
+        "locationId": "bosque-verde",
+        "isGymLeader": false,
+        "optional": true,
+        "team": [
+            {
+                "specie": "metapod",
+                "level": 7,
+                "ability": "shed-skin",
+                "moves": [
+                    "harden"
+                ]
+            },
+            {
+                "specie": "caterpie",
+                "level": 7,
+                "ability": "shield-dust",
+                "moves": [
+                    "string-shot",
+                    "tackle"
+                ]
+            },
+            {
+                "specie": "metapod",
+                "level": 7,
+                "ability": "shed-skin",
+                "moves": [
+                    "harden"
+                ]
+            }
+        ]
+    },
+    {
+        "id": "cazabichos-sami",
+        "type": "BUG_CATCHER",
+        "name": "Cazabichos Sami",
+        "locationId": "bosque-verde",
+        "isGymLeader": false,
+        "optional": true,
+        "team": [
+            {
+                "specie": "weedle",
+                "level": 9,
+                "ability": "shield-dust",
+                "moves": [
+                    "string-shot",
+                    "poison-sting"
+                ]
+            }
+        ]
+    },
+    {
+        "id": "campista-angelito",
+        "type": "CAMPER",
+        "name": "Campista Angelito",
+        "locationId": "gimnasio-ciudad-plateada",
+        "optional": true,
+        "isGymLeader": false,
+        "team": [
+            {
+                "specie": "geodude",
+                "level": 10,
+                "ability": "rock-head",
+                "moves": [
+                    "tackle",
+                    "defense-curl"
+                ]
+            },
+            {
+                "specie": "sandshrew",
+                "level": 11,
+                "ability": "sand-veil",
+                "moves": [
+                    "scratch",
+                    "defense-curl",
+                    "sand-attack"
+                ]
+            }
+        ]
+    },
+    {
+        "id": "lider-brock",
+        "name": "Lider Brock",
+        "type": "GYM_LEADER",
+        "locationId": "gimnasio-ciudad-plateada",
+        "optional": false,
+        "isGymLeader": true,
+        "team": [
+            {
+                "specie": "geodude",
+                "level": 12,
+                "ability": null,
+                "moves": [
+                    "tackle",
+                    "defense-curl",
+                    "mud-sport"
+                ]
+            },
+            {
+                "specie": "onix",
+                "level": 14,
+                "ability": null,
+                "moves": [
+                    "tackle",
+                    "bind",
+                    "defense-curl",
+                    "rock-throw"
+                ]
+            }
+        ]
+    }
+]

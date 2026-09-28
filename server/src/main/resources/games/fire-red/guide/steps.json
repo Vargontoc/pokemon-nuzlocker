@@ -1,0 +1,272 @@
+[
+    {
+        "id": "pueblo-paleta-inicio",
+        "order": 1,
+        "locationId": "pueblo-paleta",
+        "preconditions": {
+            "badges": 0,
+            "flags": []
+        },
+        "objective": "Recoger la Poción del PC y salir del pueblo por el norte",
+        "text": "Al empezar eliges si eres chico o chica, lo que no afecta al juego. Retira la poción del PC de tu casa, sal y dirigete a la salida norte del pueblo. El Profesor Oak te detendrá y te llevará a su laboratorio.",
+        "trainers": [],
+        "rewards": [
+            {
+                "item": "potion",
+                "quantity": 1
+            }
+        ],
+        "unlocks": [],
+        "completeWhen": {
+            "type": "FLAG",
+            "value": "OAK_ESCORTED_TO_LAB"
+        },
+        "next": "pueblo-paleta-elegir-starter"
+    },
+    {
+        "id": "pueblo-paleta-elegir-starter",
+        "order": 2,
+        "locationId": "pueblo-paleta",
+        "preconditions": {
+            "badges": 0,
+            "flags": [
+                "OAK_ESCORTED_TO_LAB"
+            ]
+        },
+        "objective": "Elegir un Pokémon inicial",
+        "text": "En el laboratorio eliges tu primer Pokémon entre Bulbasaur, Squirtle y Charmander. Tu rival escogerá el que tenga ventaja de tipo sobre el tuyo. Bulbasaur es el más fácil de entrenar, Squirtle es intermedio y Charmander el mñas dificl en los primeros gimnasios.",
+        "trainers": [],
+        "rewards": [],
+        "unlocks": [],
+        "completeWhen": {
+            "type": "FLAG",
+            "value": "HAS_STARTER"
+        },
+        "next": "pueblo-paleta-rival-laboratorio"
+    },
+    {
+        "id": "pueblo-paleta-rival-laboratorio",
+        "order": 3,
+        "locationId": "pueblo-paleta",
+        "preconditions": {
+            "flags": [
+                "HAS_STARTER"
+            ]
+        },
+        "objective": "Combatir con el rival antes de salir del laboratorio",
+        "text": "Antes de salir del laboratorio tu rival te reta al primer combate. Después dirigete a la Ruta 1.",
+        "trainers": [
+            "rival-laboratorio"
+        ],
+        "rewards": [],
+        "unlocks": [],
+        "completeWhen": {
+            "type": "EVENT",
+            "value": "RIVAL_LAB_BATTLE_DONE"
+        },
+        "next": "ruta-1-hacia-ciudad-verde"
+    },
+    {
+        "id": "ruta-1-hacia-ciudad-verde",
+        "order": 4,
+        "locationId": "ruta-1",
+        "preconditions": {
+            "flags": [
+                "HAS_STARTER"
+            ]
+        },
+        "objective": "Atravesar la ruta 1 y llegar a Ciudad Verde",
+        "text": "En la ruta 1 un comerciante te regala una Poción. Siguiendo la ruta hacia el norte llegas a Ciudad Verde",
+        "trainers": [],
+        "rewards": [
+            {
+                "item": "potion",
+                "quantity": 1
+            }
+        ],
+        "unlocks": [],
+        "completeWhen": {
+            "type": "LOCATION_REACHED",
+            "value": "ciudad-verde"
+        },
+        "next": "ciudad-verde-paquete-oak"
+    },
+    {
+        "id": "ciudad-verde-paquete-oak",
+        "order": 5,
+        "locationId": "ciudad-verde",
+        "preconditions": {
+            "badges": 0,
+            "flags": []
+        },
+        "objective": "Recoger en la tienda Pokémon el paquete para el Profesor Oak",
+        "text": "Primera visita a Ciudad Verde. Para avanzar entra en la Tienda Pokemon; el dependiente te entrega un paquete para el Profesor Oak y tienes que volver a Pueblo Paleta.",
+        "trainers": [],
+        "rewards": [
+            {
+                "item": "oaks-parcel",
+                "quantity": 1
+            }
+        ],
+        "unlocks": [],
+        "completeWhen": {
+            "type": "FLAG",
+            "value": "HAS_OAKS_PARCEL"
+        },
+        "next": "pueblo-paleta-entregar-paquete"
+    },
+    {
+        "id": "pueblo-paleta-entregar-paquete",
+        "order": 6,
+        "locationId": "pueblo-paleta",
+        "preconditions": {
+            "badges": 0,
+            "flags": [
+                "HAS_OAKS_PARCEL"
+            ]
+        },
+        "objective": "Volver al laboratorio y entregar el paquete al Profesor Oak",
+        "text": "Regresa a Pueblo Paleta por la Ruta 1, entra en el laboratorio y entrega el paquete al Profesor Oak. Te dará 5 Pokéballs, así que a partir de ahora puedes capturar Pokémon.",
+        "trainers": [],
+        "rewards": [
+            {
+                "item": "pokedex",
+                "quantity": 1
+            },
+            {
+                "item": "pokeball",
+                "quantity": 5
+            }
+        ],
+        "unlocks": [
+            "CATCHING"
+        ],
+        "completeWhen": {
+            "type": "FLAG",
+            "value": "OAKS_PARCEL_DELIVERED"
+        },
+        "next": "ruta-22-rival-1"
+    },
+    {
+        "id": "ruta-22-rival-1",
+        "order": 7,
+        "locationId": "ruta-22",
+        "preconditions": {
+            "badges": 0,
+            "flags": [
+                "OAKS_PARCEL_DELIVERED"
+            ]
+        },
+        "objective": "Ir a la Ruta 22 y combatir con el rival por segunda vez",
+        "text": "Vuelve a Ciudad Verde y sal por el oeste para llegar a la Ruta 22, que lleva a la Liga Pokémon. Allí encontrarás una zona de captura de Pokemon salvajes y un poco más adelante te encuentras con tu Rival por segunda vez; si has entrenado no tendrás problemas. Sin las 8 medallas no puedes entrar en la liga, así que regresa a Ciudad Verde.",
+        "trainers": [
+            "rival-ruta-22-1"
+        ],
+        "rewards": [],
+        "unlocks": [],
+        "completeWhen": {
+            "type": "TRAINER_DEFEATED",
+            "value": "rival-ruta-22-1"
+        },
+        "next": "ruta-2-hacia-bosque-verde"
+    },
+    {
+        "id": "ruta-2-hacia-bosque-verde",
+        "order": 8,
+        "locationId": "ruta-2",
+        "preconditions": {
+            "badges": 0,
+            "flags": [
+                "OAKS_PARCEL_DELIVERED"
+            ]
+        },
+        "objective": "Salir de Ciudad Verde por el norte y llegar al Bosque Verde",
+        "text": "Desde Ciudad Verde toma la salida norte hacia la Ruta 2, que conecta con Ciudad Plateada pasando por el Bosque Verde.",
+        "trainers": [],
+        "rewards": [],
+        "unlocks": [],
+        "completeWhen": {
+            "type": "LOCATION_REACHED",
+            "value": "bosque-verde"
+        },
+        "next": "bosque-verde-cruzar"
+    },
+    {
+        "id": "bosque-verde-cruzar",
+        "order": 9,
+        "locationId": "bosque-verde",
+        "preconditions": {
+            "badges": 0,
+            "flags": []
+        },
+        "objective": "Atravesar el bosque verde y llegar a Ciudad Plateada por la salida norte",
+        "text": "El objetivo es llegar a la salida norte del bosque, que da al tramo final de la Ruta 2 y a Ciudad Plateada, donde está el primer gimnasio. Por el camino hay cinco Cazabichos opcionales y varios objetos en el suelo: dos Antídotos, dos Pociones y una Poké ball",
+        "trainers": [
+            "cazabichos-anton",
+            "cazabichos-domin",
+            "cazabichos-jano",
+            "cazabichos-carmelo",
+            "cazabichos-sami"
+        ],
+        "rewards": [],
+        "unlocks": [],
+        "completeWhen": {
+            "type": "LOCATION_REACHED",
+            "value": "ciudad-plateada"
+        },
+        "next": "ciudad-plateada-llegada"
+    },
+    {
+        "id": "ciudad-plateada-llegada",
+        "order": 10,
+        "locationId": "ciudad-plateada",
+        "preconditions": {
+            "badges": 0,
+            "flags": []
+        },
+        "objective": "Recoger la Poké ball oculta.",
+        "text": "En Ciudad Plateada hay una Poké ball oculta y una Tienda Pokémon donde comprar Pokéballs. El camino a la Ruta 3 está bloqueado hasta que superes el gimnassio de la ciudad, asi que el siguiente paso ees el Gimnasio.",
+        "trainers": [],
+        "rewards": [
+            {
+                "item": "pokeball",
+                "quantity": 1
+            }
+        ],
+        "unlocks": [],
+        "completeWhen": {
+            "type": "LOCATION_REACHED",
+            "value": "gimnasio-ciudad-plateada"
+        },
+        "next": "gimnasio-ciudad-plateada-brock"
+    },
+    {
+        "id": "gimnasio-ciudad-plateada-brock",
+        "order": 11,
+        "locationId": "gimnasio-ciudad-plateada",
+        "preconditions": {
+            "badges": 0,
+            "flags": []
+        },
+        "objective": "Combatir con Brock, el líder del gimnasio y obtener la Medalla Roca",
+        "text": "Además deñ lider solo hay un entrenador, el Campista Angelito; es recomendable combatir con él para ganar experiencia. Al vencer a Brock obtienes, la Medalla Roca y la MT39 Tumba Rocas, y se desbloquea el camino a la Ruta 3.",
+        "trainers": [
+            "campista-angelito",
+            "lider-brock"
+        ],
+        "rewards": [
+            {
+                "item": "tm39",
+                "quantity": 1
+            }
+        ],
+        "unlocks": [
+            "ROUTE_3_ACCESS"
+        ],
+        "completeWhen": {
+            "type": "BADGE",
+            "value": "BOULDER"
+        },
+        "next": null
+    }
+]

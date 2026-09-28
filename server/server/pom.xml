@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>4.1.0</version>
+        <relativePath/>
+    </parent>
+
+    <groupId>es.vargontoc</groupId>
+    <artifactId>pokemon.nuzlocker</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <name>Pokemon Nuzlocker</name>
+    <description>Pokemon Nuzlocker</description>
+
+    <properties>
+        <java.version>21</java.version>
+        <common-lib.version>1.0.0</common-lib.version>
+    </properties>
+
+    <repositories>
+        <repository>
+            <id>proyecto-local</id>
+            <url>file://${project.basedir}/local-repo</url>
+        </repository>
+    </repositories>
+
+    <dependencies>
+        <!-- La librería común: se declara como cualquier otra dependencia -->
+        <dependency>
+            <groupId>es.vargontoc</groupId>
+            <artifactId>framework</artifactId>
+            <version>${common-lib.version}</version>
+        </dependency>
+ 
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-webmvc</artifactId>
+        </dependency>
+ 
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+
+
+    </dependencies>
+
+    <build>
+        <plugins>
+            <!-- En la aplicación sí queremos el fat jar ejecutable -->
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+</project>

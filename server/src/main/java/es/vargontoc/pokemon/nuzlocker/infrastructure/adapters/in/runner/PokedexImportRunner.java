@@ -1,4 +1,4 @@
-package es.vargontoc.pokemon.nuzlocker.infrastructure.adapters.in.web.runner;
+package es.vargontoc.pokemon.nuzlocker.infrastructure.adapters.in.runner;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -6,7 +6,7 @@ import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
 
-import es.vargontoc.pokemon.nuzlocker.application.ports.out.pokedex.PokedexImportPort;
+import es.vargontoc.pokemon.nuzlocker.application.ports.in.pokedex.PokedexImportPort;
 
 @Component
 public class PokedexImportRunner implements ApplicationRunner {

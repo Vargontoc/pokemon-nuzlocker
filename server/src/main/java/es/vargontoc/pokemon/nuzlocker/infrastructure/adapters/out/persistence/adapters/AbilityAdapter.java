@@ -4,7 +4,7 @@ import org.springframework.stereotype.Repository;
 
 import es.vargontoc.framework.persistence.BaseAdapter;
 import es.vargontoc.framework.persistence.BaseRepository;
-import es.vargontoc.pokemon.nuzlocker.application.ports.out.persitence.AbilityPort;
+import es.vargontoc.pokemon.nuzlocker.application.ports.out.persistence.AbilityPort;
 import es.vargontoc.pokemon.nuzlocker.domain.models.pokedex.Ability;
 import es.vargontoc.pokemon.nuzlocker.infrastructure.adapters.out.persistence.entities.AbilityJpaEntity;
 import es.vargontoc.pokemon.nuzlocker.infrastructure.adapters.out.persistence.mappers.AbilityMapper;

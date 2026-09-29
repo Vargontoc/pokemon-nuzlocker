@@ -6,14 +6,14 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestClient;
 
-import es.vargontoc.pokemon.nuzlocker.application.ports.out.pokedex.PokedeLoaderPort;
+import es.vargontoc.pokemon.nuzlocker.application.ports.out.pokedex.PokedexLoaderPort;
 import es.vargontoc.pokemon.nuzlocker.infrastructure.configuration.PokeApiProperties;
 
 import tools.jackson.databind.JsonNode;
 import tools.jackson.databind.ObjectMapper;
 
 @Component
-public class PokeApiClient implements PokedeLoaderPort {
+public class PokeApiClient implements PokedexLoaderPort {
 
     static final String API_PREFIX = "/api/v2/";
 

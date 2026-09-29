@@ -1,0 +1,17 @@
+{
+  "_notes": [
+    "Mapa del juego (grupo.número) -> locationId de locations.json. Los interiores sin entrada conservan la última localización conocida.",
+    "Valores de pret/pokefirered; verificar paseando con /emulator/snapshot, que muestra el grupo y número actuales."
+  ],
+  "maps": {
+    "3.0": "pueblo-paleta",
+    "3.1": "ciudad-verde",
+    "3.2": "ciudad-plateada",
+    "3.19": "ruta-1",
+    "3.20": "ruta-2",
+    "3.40": "ruta-22",
+    "1.0": "bosque-verde",
+    "4.3": "pueblo-paleta",
+    "6.2": "gimnasio-ciudad-plateada"
+  }
+}

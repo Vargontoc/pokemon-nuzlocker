@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 
 import es.vargontoc.framework.persistence.BaseAdapter;
 import es.vargontoc.framework.persistence.BaseRepository;
-import es.vargontoc.pokemon.nuzlocker.application.ports.out.persitence.RunPokemonPort;
+import es.vargontoc.pokemon.nuzlocker.application.ports.out.persistence.RunPokemonPort;
 import es.vargontoc.pokemon.nuzlocker.domain.models.nuzlocke.RunPokemon;
 import es.vargontoc.pokemon.nuzlocker.infrastructure.adapters.out.persistence.entities.RunPokemonJpaEntity;
 import es.vargontoc.pokemon.nuzlocker.infrastructure.adapters.out.persistence.mappers.RunPokemonMapper;

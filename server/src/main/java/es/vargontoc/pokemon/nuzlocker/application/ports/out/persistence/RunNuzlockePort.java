@@ -1,4 +1,4 @@
-package es.vargontoc.pokemon.nuzlocker.application.ports.out.persitence;
+package es.vargontoc.pokemon.nuzlocker.application.ports.out.persistence;
 
 import java.util.Optional;
 

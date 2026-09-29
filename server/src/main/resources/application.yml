@@ -6,6 +6,13 @@ nuzlocke:
     pokeapi:
       baseUrl: https://pokeapi.co/api/v2
       request-delay-ms: 500
+    emulator:
+      enabled: true
+      host: localhost
+      port: 8888
+      poll-interval-ms: 500
+      connect-timeout-ms: 1000
+      auto-turn: true
 spring:
   application:
     name: pokemon-nuzlocker-server

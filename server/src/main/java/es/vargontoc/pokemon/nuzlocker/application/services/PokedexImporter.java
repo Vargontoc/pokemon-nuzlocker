@@ -1,4 +1,4 @@
-package es.vargontoc.pokemon.nuzlocker.infrastructure.adapters.out.pokedex;
+package es.vargontoc.pokemon.nuzlocker.application.services;
 
 import java.util.HashMap;
 import java.util.List;
@@ -7,14 +7,13 @@ import java.util.Map;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
-import es.vargontoc.pokemon.nuzlocker.application.ports.out.persitence.AbilityPort;
-import es.vargontoc.pokemon.nuzlocker.application.ports.out.persitence.MovePort;
-import es.vargontoc.pokemon.nuzlocker.application.ports.out.persitence.SpeciePort;
-import es.vargontoc.pokemon.nuzlocker.application.ports.out.pokedex.PokedeLoaderPort;
-import es.vargontoc.pokemon.nuzlocker.application.ports.out.pokedex.PokedexImportPort;
+import es.vargontoc.pokemon.nuzlocker.application.ports.in.pokedex.PokedexImportPort;
+import es.vargontoc.pokemon.nuzlocker.application.ports.out.persistence.AbilityPort;
+import es.vargontoc.pokemon.nuzlocker.application.ports.out.persistence.MovePort;
+import es.vargontoc.pokemon.nuzlocker.application.ports.out.persistence.SpeciePort;
+import es.vargontoc.pokemon.nuzlocker.application.ports.out.pokedex.PokedexLoaderPort;
 import es.vargontoc.pokemon.nuzlocker.domain.models.pokedex.Ability;
 import es.vargontoc.pokemon.nuzlocker.domain.models.pokedex.GenerationLimits;
 import es.vargontoc.pokemon.nuzlocker.domain.models.pokedex.ImportSummary;
@@ -28,7 +27,7 @@ public class PokedexImporter implements PokedexImportPort {
 
     static final Logger log = LoggerFactory.getLogger(PokedexImporter.class);
     
-    final PokedeLoaderPort client;
+    final PokedexLoaderPort client;
     final GenerationResolver resolver;
 
     final SpeciePort species;
@@ -39,7 +38,7 @@ public class PokedexImporter implements PokedexImportPort {
 
     
 
-    public PokedexImporter(PokedeLoaderPort client, GenerationResolver resolver, SpeciePort species, MovePort moves,
+    public PokedexImporter(PokedexLoaderPort client, GenerationResolver resolver, SpeciePort species, MovePort moves,
             AbilityPort abilities, JdbcTemplate jdbc) {
         this.client = client;
         this.resolver = resolver;

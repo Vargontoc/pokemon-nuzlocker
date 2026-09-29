@@ -1,0 +1,23 @@
+{
+  "_notes": [
+    "Perfil de memoria de una versión concreta de la ROM. Nombre del fichero: <código>-<revisión>.json.",
+    "Símbolos: dirección fija (0x...) o cadena de punteros: [dir] lee un puntero, + / - suma un desplazamiento.",
+    "El equipo se autoverifica: si /emulator/snapshot muestra valid=true en cada Pokémon, 'party' es correcto."
+  ],
+  "romCode": "BPRE",
+  "revision": 0,
+  "description": "Pokémon FireRed (USA) 1.0",
+  "pointerSize": 4,
+  "pointerRange": ["0x02000000", "0x02040000"],
+  "symbols": {
+    "partyCount": "0x02024029",
+    "party": "0x02024284",
+    "enemyParty": "0x0202402C",
+    "battleTypeFlags": "0x02022B4C",
+    "mapLocation": "[0x03005008] + 0x4",
+    "flags": "[0x03005008] + 0xEE0"
+  },
+  "sizes": {
+    "flags": "0x120"
+  }
+}

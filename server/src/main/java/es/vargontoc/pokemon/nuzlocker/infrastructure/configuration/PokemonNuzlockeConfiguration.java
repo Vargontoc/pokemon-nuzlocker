@@ -6,7 +6,7 @@ import org.springframework.context.annotation.Configuration;
 
 import es.vargontoc.pokemon.nuzlocker.application.ports.in.SpecieFamilyUseCase;
 import es.vargontoc.pokemon.nuzlocker.application.ports.out.GameManifestPort;
-import es.vargontoc.pokemon.nuzlocker.application.ports.out.pokedex.PokedeLoaderPort;
+import es.vargontoc.pokemon.nuzlocker.application.ports.out.pokedex.PokedexLoaderPort;
 import es.vargontoc.pokemon.nuzlocker.domain.models.ActiveGame;
 import es.vargontoc.pokemon.nuzlocker.domain.services.GenerationResolver;
 import es.vargontoc.pokemon.nuzlocker.domain.services.Generations;
@@ -26,7 +26,7 @@ public class PokemonNuzlockeConfiguration {
     }
 
     @Bean
-    public Generations generations(PokedeLoaderPort port) {
+    public Generations generations(PokedexLoaderPort port) {
         return new Generations(vg -> Generations.ofGeneration(port.get("version-group/" + vg).path("generation").path("name").asString()));
     }
 

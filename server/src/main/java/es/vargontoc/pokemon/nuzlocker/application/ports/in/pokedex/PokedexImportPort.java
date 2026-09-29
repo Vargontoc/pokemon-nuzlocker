@@ -1,4 +1,4 @@
-package es.vargontoc.pokemon.nuzlocker.application.ports.out.pokedex;
+package es.vargontoc.pokemon.nuzlocker.application.ports.in.pokedex;
 
 import es.vargontoc.pokemon.nuzlocker.domain.models.pokedex.ImportSummary;
 

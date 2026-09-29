@@ -1,0 +1,17 @@
+{
+  "_notes": [
+    "Flags del juego (iguales en todos los idiomas) -> valores de completesWhen en steps.json.",
+    "HAS_OAKS_PARCEL no tiene flag propio: se aproxima con el de la Pokédex, que se activa al entregar el paquete.",
+    "Verificar con /emulator/snapshot antes de confiar en ellos."
+  ],
+  "badges": {
+    "BOULDER": "0x820", "CASCADE": "0x821", "THUNDER": "0x822", "RAINBOW": "0x823",
+    "SOUL": "0x824", "MARSH": "0x825", "VOLCANO": "0x826", "EARTH": "0x827"
+  },
+  "flags": {
+    "OAK_ESCORTED_TO_LAB": "0x828",
+    "HAS_STARTER": "0x828",
+    "HAS_OAKS_PARCEL": "0x829",
+    "OAKS_PARCEL_DELIVERED": "0x829"
+  }
+}

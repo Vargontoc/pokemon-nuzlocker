@@ -1,0 +1,21 @@
+{
+	"romCode": "BPRS",
+	"revision": 0,
+	"description": "Pokémon Rojo Fuego (UE) 1.0",
+	"pointerSize": 4,
+	"pointerRange": [
+		"0x02000000",
+		"0x02040000"
+	],
+	"symbols": {
+		"battleTypeFlags": "0x02022B4C",
+		"party": "0x02024284",
+		"enemyParty": "0x0202402C",
+		"mapLocation": "[0x03004F58] + 0x4",
+		"partyCount": "0x020255C0",
+		"flags": "[0x03004F58] + 0xEE0"
+	},
+	"sizes": {
+		"flags": "0x120"
+	}
+}

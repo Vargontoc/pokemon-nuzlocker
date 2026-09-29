@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import es.vargontoc.framework.ai.model.VectorHit;
 import es.vargontoc.pokemon.nuzlocker.application.ports.in.GuideSearchUseCase;
-import es.vargontoc.pokemon.nuzlocker.application.ports.in.NuzlockeUseCase;
 import es.vargontoc.pokemon.nuzlocker.application.services.GuideContextService;
 import es.vargontoc.pokemon.nuzlocker.domain.models.guide.StepContext;
 
@@ -23,10 +22,9 @@ public class DebugController {
     private final GuideContextService service;
     private final GuideSearchUseCase search;
 
-    public DebugController(GuideContextService service, GuideSearchUseCase search, NuzlockeUseCase nuzlocke) {
+    public DebugController(GuideContextService service, GuideSearchUseCase search) {
         this.service = service;
         this.search = search;
-        nuzlocke.startGame(null);
     }
 
     @GetMapping("/guide/{order}")

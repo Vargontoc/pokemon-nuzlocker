@@ -10,6 +10,14 @@ spring:
     url: ${URL_BBDD:jdbc:postgresql://localhost:5432/pokemon-nuzlocker}
     username: postgres
     password: postgres
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: validate           # el esquema lo gestiona Flyway
+  flyway:
+    locations: classpath:db/migrations
+    baseline-on-migrate: true      # la BD ya tiene la tabla de vectores de Spring AI
+    baseline-version: 0            # para que V1 se ejecute igualmente
 
 es.vargontoc.framework.ai:
   base-url: ${URL_OLLAMA:http://localhost:11434/v1}

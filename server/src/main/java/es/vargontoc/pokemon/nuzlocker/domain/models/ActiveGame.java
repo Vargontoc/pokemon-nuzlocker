@@ -7,8 +7,8 @@ package es.vargontoc.pokemon.nuzlocker.domain.models;
 public class ActiveGame {
     private final GameManifest manifest;
 
-    public ActiveGame(String gameId) {
-        this.manifest = GameManifest.load(gameId);
+    public ActiveGame(GameManifest manifest) {
+        this.manifest = manifest;
     }
 
     /**
@@ -20,7 +20,7 @@ public class ActiveGame {
     */
     public GameManifest manifest() { return manifest; }
 
-    /* 
+    /*
     Obtiene la ruta de un recurso dentro del paquete del juego
     */
     public static String path(String gameId, String relative) { return "games/" + gameId + "/" + relative; }

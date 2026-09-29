@@ -11,10 +11,9 @@ create table run_nuzlocke (
     defeated_trainers   jsonb        not null,
     unlocks             jsonb        not null,
     created_at          timestamp(6) with time zone not null,
-    updates_at          timestamp(6),
+    updated_at          timestamp(6),
     version             bigint
 );
-
 create table run_pokemon (
     id              bigint primary key,
     run_id          bigint       not null references run_nuzlocke (id) on delete cascade,
@@ -28,7 +27,7 @@ create table run_pokemon (
     caught_at_step  int          not null,
     cause_of_death  varchar(200),
     created_at          timestamp(6) with time zone not null,
-    updates_at          timestamp(6)
+    updated_at          timestamp(6)
 );
 create index idx_run_pokemon_run on run_pokemon (run_id);
 create unique index ux_run_pokemon_personality on run_pokemon (run_id, personality) where personality is not null;
@@ -47,6 +46,6 @@ create table run_encounter (
     consumes_zone  boolean      not null,
     step_order     int          not null,
     created_at          timestamp(6) with time zone not null,
-    updates_at          timestamp(6)
+    updated_at          timestamp(6)
 );
 create index idx_run_encounter_run on run_encounter (run_id);

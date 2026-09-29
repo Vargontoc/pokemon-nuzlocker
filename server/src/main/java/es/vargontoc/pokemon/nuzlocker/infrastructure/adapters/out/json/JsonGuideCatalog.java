@@ -18,7 +18,6 @@ import java.util.function.Function;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Component;
 
@@ -48,8 +47,8 @@ public class JsonGuideCatalog implements GuideCatalogPort {
     private final List<Step> steps;
     private final List<String> warnings = new ArrayList<>();
 
-    public JsonGuideCatalog(@Value("${nuzlocke.game}") String gameId) {
-        this.gameId = gameId;
+    public JsonGuideCatalog(ActiveGame game) {
+        this.gameId = game.id();
         this.basePath = ActiveGame.path(gameId, "guide") + "/";
 
         ObjectMapper mapper = JsonMapper.builder()

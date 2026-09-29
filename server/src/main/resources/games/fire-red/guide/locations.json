@@ -144,7 +144,7 @@
                 "specie": "psyduck",
                 "minLevel": 20,
                 "maxLevel": 40,
-                "exclusive-version": "fire-red",
+                "exclusiveVersion": "fire-red",
                 "requires": [
                     {
                         "type": "MOVE_ON_TEAM",
@@ -161,7 +161,7 @@
                 "specie": "slowpoke",
                 "minLevel": 20,
                 "maxLevel": 40,
-                "exclusive-version": "leaf-green",
+                "exclusiveVersion": "leaf-green",
                 "requires": [
                     {
                         "type": "MOVE_ON_TEAM",
@@ -262,7 +262,7 @@
                 "specie": "psyduck",
                 "minLevel": 15,
                 "maxLevel": 35,
-                "exclusive-version": "fire-red",
+                "exclusiveVersion": "fire-red",
                 "requires": [
                     {
                         "type": "HAS_ITEM",
@@ -275,7 +275,7 @@
                 "specie": "slowpoke",
                 "minLevel": 15,
                 "maxLevel": 35,
-                "exclusive-version": "leaf-green",
+                "exclusiveVersion": "leaf-green",
                 "requires": [
                     {
                         "type": "HAS_ITEM",
@@ -325,7 +325,7 @@
                 "specie": "psyduck",
                 "minLevel": 20,
                 "maxLevel": 40,
-                "exclusive-version": "fire-red",
+                "exclusiveVersion": "fire-red",
                 "requires": [
                     {
                         "type": "MOVE_ON_TEAM",
@@ -342,7 +342,7 @@
                 "specie": "slowpoke",
                 "minLevel": 20,
                 "maxLevel": 40,
-                "exclusive-version": "leaf-green",
+                "exclusiveVersion": "leaf-green",
                 "requires": [
                     {
                         "type": "MOVE_ON_TEAM",
@@ -443,7 +443,7 @@
                 "specie": "psyduck",
                 "minLevel": 15,
                 "maxLevel": 35,
-                "exclusive-version": "fire-red",
+                "exclusiveVersion": "fire-red",
                 "requires": [
                     {
                         "type": "HAS_ITEM",
@@ -456,7 +456,7 @@
                 "specie": "slowpoke",
                 "minLevel": 15,
                 "maxLevel": 35,
-                "exclusive-version": "leaf-green",
+                "exclusiveVersion": "leaf-green",
                 "requires": [
                     {
                         "type": "HAS_ITEM",

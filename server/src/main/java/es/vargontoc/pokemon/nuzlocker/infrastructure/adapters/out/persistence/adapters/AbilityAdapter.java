@@ -8,12 +8,18 @@ import es.vargontoc.pokemon.nuzlocker.application.ports.out.persitence.AbilityPo
 import es.vargontoc.pokemon.nuzlocker.domain.models.pokedex.Ability;
 import es.vargontoc.pokemon.nuzlocker.infrastructure.adapters.out.persistence.entities.AbilityJpaEntity;
 import es.vargontoc.pokemon.nuzlocker.infrastructure.adapters.out.persistence.mappers.AbilityMapper;
+import es.vargontoc.pokemon.nuzlocker.infrastructure.adapters.out.persistence.repositories.AbilityRepository;
 
 @Repository
 public class AbilityAdapter extends BaseAdapter<Long, AbilityJpaEntity, Ability, AbilityMapper> implements AbilityPort {
 
     protected AbilityAdapter(BaseRepository<Long, AbilityJpaEntity> repository, AbilityMapper mapper) {
         super(repository, mapper);
+    }
+
+    @Override
+    public void deleteAbove(int abilities) {
+        ((AbilityRepository)repository).deleteAbove(abilities);
     }
     
 }

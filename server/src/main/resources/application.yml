@@ -3,6 +3,9 @@ server:
 
 nuzlocke:
     game: fire-red
+    pokeapi:
+      baseUrl: https://pokeapi.co/api/v2
+      request-delay-ms: 500
 spring:
   application:
     name: pokemon-nuzlocker-server

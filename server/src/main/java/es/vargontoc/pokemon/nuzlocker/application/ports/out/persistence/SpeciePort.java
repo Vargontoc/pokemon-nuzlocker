@@ -16,4 +16,6 @@ public interface SpeciePort {
     Optional<Specie> findBySlug(String slug);
 
     List<Specie> findAll();
+
+    Optional<Specie> findById(Long id);
 }

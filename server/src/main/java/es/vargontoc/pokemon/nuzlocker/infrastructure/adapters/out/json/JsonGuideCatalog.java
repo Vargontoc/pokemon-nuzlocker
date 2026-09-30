@@ -153,6 +153,10 @@ public class JsonGuideCatalog implements GuideCatalogPort {
     }
 
     @Override
+    public Collection<Trainer> trainers() {
+        return trainers.values();
+    }
+    @Override
     public Optional<Step> step(String id) {
         return Optional.ofNullable(stepsById.get(id));
     }

@@ -7,6 +7,11 @@ public record RunPokemon(Long id, long runId, String specie, String nickname, in
         return new RunPokemon(id, runId, specie, nickname, level, status, shiny, locationId, caughtAtStep, causeofDeath, identity);
     }
 
+    public String displayName() {
+        return nickname != null ? nickname : specie;
+
+    }
+
     public RunPokemon levelUp(int level) {
         return new RunPokemon(id, runId, specie, nickname, level, status, shiny, locationId, caughtAtStep, causeofDeath, identityKey);
     }

@@ -25,7 +25,7 @@ public interface GuideCatalogPort {
     Optional<Location> location(String id);
 
     /**
-    Obtiene todas las localizaciones de la guía
+    * @return Obtiene todas las localizaciones de la guía
     */
     Collection<Location> locations();
 
@@ -35,6 +35,12 @@ public interface GuideCatalogPort {
      * @return entrenador
      */
     Optional<Trainer> trainer(String id);
+
+    /**
+     * 
+     * @return Obtiene todos los entrenadores de la guía
+     */
+    Collection<Trainer> trainers();
 
     /**
      * Obtiene un paso de la guía por su identificador unico

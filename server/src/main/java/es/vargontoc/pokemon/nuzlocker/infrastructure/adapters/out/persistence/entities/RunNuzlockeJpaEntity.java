@@ -14,14 +14,10 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
 import jakarta.persistence.Table;
-import jakarta.persistence.Version;
 
 @Entity
 @Table(name = "run_nuzlocke")
 public class RunNuzlockeJpaEntity extends BaseEntity<Long> {
-    
-    @Version
-    private Long version;
 
     @Column(name= "game_id")
     private String gameId;
@@ -62,6 +58,7 @@ public class RunNuzlockeJpaEntity extends BaseEntity<Long> {
 
     public void of(RunNuzlocke run) {
         this.setId(run.id());
+        this.setStatus(run.status());
         this.setBadges(run.badges());
         this.setCurrentLocation(run.currentLocationId());
         this.setCurrentStepOrder(run.currentStepOrder());
@@ -71,14 +68,6 @@ public class RunNuzlockeJpaEntity extends BaseEntity<Long> {
         this.setRules(run.rules());
         this.setStarter(run.starter());
         this.setUnlocks(run.unlocks());
-    }
-
-    public Long getVersion() {
-        return version;
-    }
-
-    public void setVersion(Long version) {
-        this.version = version;
     }
 
     public String getGameId() {

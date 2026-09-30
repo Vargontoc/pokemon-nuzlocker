@@ -14,7 +14,7 @@ public interface NuzlockeUseCase {
 
     RunStateView state(Long id);
 
-    EventResult chooseStarter(Long id, RunPokemon pokemon);
+    EventResult chooseStarter(Long id, String specie, String nickname);
 
     EventResult applyEvent(Long id, CompletionCondition condition);
 

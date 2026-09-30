@@ -69,7 +69,8 @@ public class NuzlockeService implements NuzlockeUseCase, StepProgressionUseCase,
 
         Step first = catalog.steps().getFirst();
         
-        RunNuzlocke stored = nuzlockePort.save(RunNuzlocke.init(game.id(), rules, first.order(), first.locationId()));
+        RunNuzlocke toSave = RunNuzlocke.init(game.id(), rules, first.order(), first.locationId()) ;
+        RunNuzlocke stored = nuzlockePort.save(toSave);
         return view(stored);
     }
 
@@ -81,18 +82,20 @@ public class NuzlockeService implements NuzlockeUseCase, StepProgressionUseCase,
 
     
     @Override
-    public EventResult chooseStarter(Long id, RunPokemon pokemon) {
+    @Transactional
+    public EventResult chooseStarter(Long id, String specie, String nickname) {
         RunNuzlocke run = load(id);
-        if(!game.manifest().starters().contains(pokemon.specie()))
-            throw new IllegalArgumentException("Inicial no válido: " + pokemon.specie());
+        if(!game.manifest().starters().contains(specie))
+            throw new IllegalArgumentException("Inicial no válido: " + specie);
 
-        pokemonPort.save(new RunPokemon(null, run.id(), pokemon.specie(), pokemon.nickname(), 5, RunPokemonStatusType.PARTY, false, null, run.currentStepOrder(), null, null));
+        pokemonPort.save(new RunPokemon(null, run.id(), specie, nickname, 5, RunPokemonStatusType.PARTY, false, null, run.currentStepOrder(), null, null));
 
-        var stored = nuzlockePort.save(run.starter(pokemon.specie()).addFlag("HAS_STARTER")); //# persistir en repositorio
+        var stored = nuzlockePort.save(run.starter(specie).addFlag("HAS_STARTER")); //# persistir en repositorio
         return new EventResult(advance(stored), view(stored));
     }
 
     @Override
+    @Transactional
     public EventResult applyEvent(Long id, CompletionCondition event) {
         RunNuzlocke run = load(id);
 
@@ -121,6 +124,7 @@ public class NuzlockeService implements NuzlockeUseCase, StepProgressionUseCase,
     }
 
     @Override
+    @Transactional
     public RunStateView recordEncounter(Long runId, RunPokemon encounter, boolean caught) {
         RunNuzlocke run = load(runId);
 
@@ -143,6 +147,7 @@ public class NuzlockeService implements NuzlockeUseCase, StepProgressionUseCase,
 
     
     @Override
+    @Transactional
     public RunStateView faint(Long runId, Long pokemonId, String causeOfDeath) {
         RunNuzlocke run = load(runId);
         RunPokemon fainted = pokemonPort.findById(pokemonId).filter(p -> p.runId() == runId).orElseThrow();
@@ -155,6 +160,7 @@ public class NuzlockeService implements NuzlockeUseCase, StepProgressionUseCase,
     }
 
     @Override
+    @Transactional
     public RunStateView updateLevel(Long runId, Long pokemonId, int level) {
         RunNuzlocke run = load(runId);
         RunPokemon rp = pokemonPort.findById(pokemonId).filter(p -> p.runId() == runId).orElseThrow();
@@ -165,6 +171,7 @@ public class NuzlockeService implements NuzlockeUseCase, StepProgressionUseCase,
     }
 
     @Override
+    @Transactional
     public void linkIdentity(Long runId, Long pokemonId, String identityKey) {
         RunPokemon rp =  pokemonPort.findById(pokemonId).filter(p -> p.runId() == runId).orElseThrow();
         pokemonPort.save(rp.identity(identityKey));

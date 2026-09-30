@@ -21,33 +21,38 @@ import es.vargontoc.pokemon.nuzlocker.domain.models.emulator.profile.SymbolExpre
 import es.vargontoc.pokemon.nuzlocker.infrastructure.adapters.out.emulator.EmulationGameData;
 import es.vargontoc.pokemon.nuzlocker.infrastructure.adapters.out.emulator.Gen3Codec;
 import es.vargontoc.pokemon.nuzlocker.infrastructure.adapters.out.emulator.ProfileRegistry;
+import es.vargontoc.pokemon.nuzlocker.application.services.SnapshotService;
 
 @Service
 public class CalibrationService {
-    
+
 
      static final long EWRAM_START = 0x02000000L;
     static final long EWRAM_END = 0x02040000L;
     static final long IWRAM_START = 0x03000000L;
     static final long IWRAM_END = 0x03008000L;
- 
+
     private static final RomId REFERENCE = new RomId("BPRE", 0);
     private static final String REFERENCE_SAVEBLOCK_PTR = "0x03005008";
     private static final int LOCATION_OFFSET = 0x4;
     private static final int MAX_PARTY = 6;
     private static final int MAX_KANTO_JOHTO = 251;
- 
+
     private final EmulatorTransportPort transport;
     private final GenerationCodec codec;
     private final ProfileRegistry profiles;
     private final EmulationGameData data;
+    private final SnapshotService snapshots;
     private Set<Long> saveBlockCandidates;
- 
-    public CalibrationService(EmulatorTransportPort transport, Gen3Codec codec, ProfileRegistry profiles, EmulationGameData data) {
+    private byte[] flagsBaseline;
+
+    public CalibrationService(EmulatorTransportPort transport, Gen3Codec codec, ProfileRegistry profiles, EmulationGameData data,
+            SnapshotService snapshots) {
         this.transport = transport;
         this.codec = codec;
         this.profiles = profiles;
         this.data = data;
+        this.snapshots = snapshots;
     }
  
     // ------------------------------------------------------------------ equipo
@@ -124,6 +129,50 @@ public class CalibrationService {
  
     public synchronized void resetSaveBlock() {
         saveBlockCandidates = null;
+    }
+
+    // ------------------------------------------------------------------ flags
+
+    public record FlagDiff(int flagId, String hex, boolean before, boolean after) {}
+
+    /**
+     * Fija el estado actual de las flags como punto de partida. Llama a esto justo ANTES
+     * de hacer la acción que quieres calibrar (conseguir una medalla, hablar con Oak...).
+     */
+    public synchronized void markFlags() throws IOException {
+        flagsBaseline = snapshots.read().flags().clone();
+    }
+
+    public synchronized void resetFlags() {
+        flagsBaseline = null;
+    }
+
+    /**
+     * Compara las flags actuales contra el punto de partida marcado con {@link #markFlags()}.
+     * Los flagId que aparecen son candidatos: si solo cambia uno, es el que buscas; si salen
+     * varios, repite la prueba en otro momento sin hacer esa acción y descarta los que se repitan
+     * (contadores internos del motor que cambian solos).
+     */
+    public synchronized List<FlagDiff> diffFlags() throws IOException {
+        if (flagsBaseline == null) {
+            throw new IllegalStateException("Llama antes a POST /emulator/calibration/flags para fijar el punto de partida");
+        }
+        byte[] now = snapshots.read().flags();
+        List<FlagDiff> changes = new ArrayList<>();
+        int bits = Math.min(flagsBaseline.length, now.length) * 8;
+        for (int flagId = 0; flagId < bits; flagId++) {
+            boolean before = bit(flagsBaseline, flagId);
+            boolean after = bit(now, flagId);
+            if (before != after) {
+                changes.add(new FlagDiff(flagId, "0x%03X".formatted(flagId), before, after));
+            }
+        }
+        return changes;
+    }
+
+    private static boolean bit(byte[] flags, int flagId) {
+        int index = flagId / 8;
+        return index < flags.length && ((flags[index] >> (flagId & 7)) & 1) == 1;
     }
  
     /** Direcciones de IWRAM que contienen un puntero a EWRAM cuyo destino + 4 guarda el mapa actual. */

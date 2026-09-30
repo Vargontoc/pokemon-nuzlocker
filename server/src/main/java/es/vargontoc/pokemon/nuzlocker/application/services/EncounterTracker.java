@@ -13,6 +13,10 @@ public class EncounterTracker {
     
     private PendingEncounter pending;
 
+    public void start(PendingEncounter encounter) {
+        this.pending = encounter;
+    }
+
     public Optional<PendingEncounter> pending() {
         return Optional.ofNullable(pending);
     }

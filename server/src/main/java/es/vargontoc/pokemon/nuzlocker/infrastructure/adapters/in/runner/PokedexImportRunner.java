@@ -26,7 +26,8 @@ public class PokedexImportRunner implements ApplicationRunner {
         }
 
         log.info("Pokédex incompleta o de otro juego: importando (puede tardar unos minutos...)");
-        importPort.importAll();
+        var i = importPort.importAll();
+        log.info("Importados {} species, {} movimientos, {} habilidades", i.species(), i.moves(), i.abilities());
     }
 
     

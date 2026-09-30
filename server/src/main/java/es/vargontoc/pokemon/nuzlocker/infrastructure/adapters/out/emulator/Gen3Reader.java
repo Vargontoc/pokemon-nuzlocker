@@ -41,22 +41,26 @@ public class Gen3Reader implements EmulationReader {
         int monSize = codec.monSize();
 
         int count = Math.min(transport.read(profile.address("partyCount", pointers), 1)[0] & 0xFF, MAX_PARTY);
-        byte[] partyBytes = transport.read(profile.address("party", pointers), MAX_PARTY * monSize);
-        List<PartyMon> party = new ArrayList<>();
-        for (int i = 0; i < count; i++) {
-            PartyMon mon = codec.decode(Arrays.copyOfRange(partyBytes, i * monSize, (i + 1) * monSize));
-            if (mon != null) {
-                party.add(mon);
-            }
-        }
+        List<PartyMon> party = decodeParty(transport.read(profile.address("party", pointers), MAX_PARTY * monSize), count, codec);
+        List<PartyMon> enemy = decodeParty(transport.read(profile.address("enemyParty", pointers), MAX_PARTY * monSize), count, codec);
 
-        PartyMon enemy = codec.decode(transport.read(profile.address("enemyParty", pointers), monSize));
         long battleFlags = littleEndian(transport.read(profile.address("battleTypeFlags", pointers), 4));
         byte[] location = transport.read(profile.address("mapLocation", pointers), 2);
         byte[] flags = transport.read(profile.address("flags", pointers), profile.size("flags"));
 
-        return new GameSnapshot(profile.key(), List.copyOf(party), enemy, (battleFlags & BATTLE_TYPE_TRAINER) != 0,
+        return new GameSnapshot(profile.key(), List.copyOf(party), List.copyOf(enemy), (battleFlags & BATTLE_TYPE_TRAINER) != 0,
                 location[0] & 0xFF, location[1] & 0xFF, flags, Instant.now());
+    }
+
+    static List<PartyMon> decodeParty(byte[] bytes, int maxSlots, GenerationCodec codec) {
+        int monSize = codec.monSize();
+        List<PartyMon> mons = new ArrayList<>();
+        for(int i = 0; i < maxSlots; i++){
+            PartyMon mon = codec.decode(Arrays.copyOfRange(bytes, i * monSize, (i + 1 ) * monSize));
+            if(mon != null)
+                mons.add(mon);
+        }
+        return List.copyOf(mons);
     }
 
     static long littleEndian(byte[] bytes) {

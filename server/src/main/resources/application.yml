@@ -33,6 +33,10 @@ es.vargontoc.framework.ai:
   base-url: ${URL_OLLAMA:http://localhost:11434/v1}
   default-type: REST
   agents:
+    nuzlocke-agent:
+      enabled: true
+      type: SPRING_AI
+      model: nuzlocke-agent
     guide-agent:
       enabled: true
       type: SPRING_AI

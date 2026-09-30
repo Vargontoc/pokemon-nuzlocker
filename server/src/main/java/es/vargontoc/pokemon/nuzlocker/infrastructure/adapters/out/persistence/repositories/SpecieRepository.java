@@ -1,5 +1,7 @@
 package es.vargontoc.pokemon.nuzlocker.infrastructure.adapters.out.persistence.repositories;
 
+import java.util.Optional;
+
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -13,4 +15,6 @@ public interface SpecieRepository  extends BaseRepository<Long, SpecieJpaEntity>
     @Transactional
     @Query("delete from SpecieJpaEntity e where e.id > :maxId")
     int deleteAbove(@Param("maxId") int maxId);
+
+    Optional<SpecieJpaEntity> findBySlug(String slug);
 }

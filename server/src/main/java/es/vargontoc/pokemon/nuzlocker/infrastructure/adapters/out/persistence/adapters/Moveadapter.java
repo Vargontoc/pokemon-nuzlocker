@@ -1,5 +1,7 @@
 package es.vargontoc.pokemon.nuzlocker.infrastructure.adapters.out.persistence.adapters;
 
+import java.util.Optional;
+
 import org.springframework.stereotype.Repository;
 
 import es.vargontoc.framework.persistence.BaseAdapter;
@@ -20,6 +22,11 @@ public class MoveAdapter  extends BaseAdapter<Long, MoveJpaEntity, Move, MoveMap
     @Override
     public void deleteAbove(int moves) {
         ((MoveRepository)repository).deleteAbove(moves);
+    }
+
+    @Override
+    public Optional<Move> findBySlug(String slug) {
+        return  ((MoveRepository)repository).findBySlug(slug).map(mapper::toDto);
     }
     
 }
